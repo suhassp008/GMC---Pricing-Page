@@ -1,0 +1,783 @@
+:root{
+    --primary-color : #0065C9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Proxima-Soft;
+}
+body{
+    width:100%;
+    min-height: 100%;
+}
+
+/*-------------------------- Header ---------------------------*/
+
+header{
+    position: fixed;
+    width:100%;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 2px 5px #e2e2e2;
+    z-index: 1;
+}
+.wrapper{
+    width:1298px;
+    padding: 0px 20px;
+}
+header .header-container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .header-container img{
+    width:200px;
+}
+header .header-container button{
+    width:96px;
+    height: 36px;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+    border: none;
+}
+header .header-container button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+    font-family: Proxima-Soft;
+}
+
+
+/* sign in / sign up popup  */
+
+.popup {
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+  }
+  
+  .popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  form i {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    color: #17252a;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  
+  .form-container {
+    position: fixed;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .redbg {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 425px;
+    background: #0065c9;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .redbg .p-card {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .redbg .p-card h2 {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .redbg .p-card img{
+    width:150px;
+    position: absolute; 
+    top:100px;
+  }
+  .redbg .signinBtn {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    text-transform: uppercase;
+  }
+  .redbg .signupBtn {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    text-transform: uppercase;
+  }
+  
+  .form-sign {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+  .form-sign .signin {
+    transition-delay: 0.25s;
+    height: 100%;
+    background-image: url('login.png');
+    background-repeat: no-repeat;
+    background-size:60% 35%;
+    background-position: bottom ;
+  }
+  .form-sign.active .signin {
+    left: -100%;
+    transition-delay: 0s;
+  }
+  .form-sign.active {
+    left: 50%;
+  }
+  .form-sign .form {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+  }
+  
+  .form-sign .signup {
+    left: 100%;
+    transition-delay: 0s;
+  }
+  
+  .form-sign.active .signup {
+    left: 0%;
+    transition-delay: 0s;
+  }
+  
+  .form-sign .form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-sign .form form h3 {
+    font-size: 24px;
+    color: #17252a;
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    line-height: 1.3333;
+  }
+  
+  .form-sign .form form input {
+    width: 100%;
+    /* height: 28px; */
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid rgba(23, 37, 42, 0.2);
+  }
+  
+  .form-sign .form form input[type="submit"] {
+    background-color: #0065c9;
+    color: white;
+    font-size: 14px;
+    border: none;
+    /* max-width: 100px; */
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  
+  .form-sign .form form a {
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    color: #0065c9;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-height:699px){ 
+    .form-container{
+      height:360px;
+      width:100%;
+      max-width: 800px;
+    }
+    .redbg{
+      height:340px;
+      top:10px;
+    } 
+    .form-sign .form form{
+      position: relative;
+      bottom: 40px;
+    }
+    form i {
+      top: 0px;
+      right: 0px;
+    }
+    .form-sign .signin{
+      background-image: none;
+    }
+  }
+  
+  
+  @media (max-width: 850px) and (min-height:700px) {
+    .form-container {
+      max-width: 400px;
+      height: 650px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-container .redbg {
+      top: 0;
+      height: 100%;
+    }
+    .form-sign {
+      width: 100%;
+      height: 500px;
+      top: 0;
+      box-shadow: none;
+    }
+    .redbg .p-card {
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      bottom: 0;
+    }
+    .redbg .signin {
+      top: 0;
+    }
+    .form-sign.active {
+      left: 0;
+      top: 150px;
+    }
+    .form-sign .signup {
+      transition: 0s;
+    }
+  
+    .form-sign.active .signup {
+      left: 0;
+      transition: 0s;
+    }
+    .form-sign.signin {
+      left: 0;
+      transition: 0s;
+    }
+    .form-sign.active .signin {
+      transition: 0s;
+    }
+  }
+
+
+/*-------------------------- Pricing Content and Individual pack card ---------------------------*/
+section{
+    position: relative;
+    top:70px;
+    width:100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section .pricing-container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+section  .pricing-content{
+    width:100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+section .pricing-content p{
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #17252a;
+}
+section .pricing-content p span{
+    color: var(--primary-color);
+}
+section .pricing-content small{
+    font-size: 30px;
+    font-weight: 400;
+    color: #17252a;
+    text-align:center;
+}
+section  .pricing-table{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+section  .pricing-table .pricing-card{
+    width:280px;
+    height:380px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    margin: 5px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------Register  for free card--------------------------------------*/
+
+section  .pricing-table .pricing-card-1{
+    background-color: var(--primary-color);
+    border: none;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+section  .pricing-table .pricing-card-1 p{
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    color: #fff;
+}
+section  .pricing-table .pricing-card-1 p span{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+section  .pricing-table .pricing-card-1 div{
+    margin-top: 30px;
+}
+section  .pricing-table .pricing-card-1 div p{
+    font-size: 20px;
+    font:400;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+section  .pricing-table .pricing-card-1 i{
+    font-size: 80px;
+    color: #fff;
+    margin-top: 35px;
+}
+
+/* -------------------------------CET Card--------------------------------------*/
+
+section  .pricing-table .pricing-card-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width:230px;
+    height:350px;
+    color: #17252a;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+}
+.content .course-name{
+    font-size:32px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.content .striked-price{
+    font-size:32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0.8;
+    text-decoration: line-through;
+}
+.content .striked-price p{
+    position: absolute;
+    top:50px;
+    left:60px;
+    font-size: 26px;
+}
+.content .course-price{
+    font-size:56px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.content .course-price p{
+    position: absolute;
+    top:103px;
+    left:30px;
+    font-size: 40px;
+}
+
+.content .months{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+hr{
+    width:100%;
+    height:1px;
+    border:1px solid #ececec;
+    margin-top: 20px;
+
+}
+.content .offer{
+    margin-top: 25px;
+}
+.content .enroll-button{
+    width:230px;
+    height:48px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius:25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+.content .enroll-button a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin: auto;
+}
+
+/* -------------------------------JEE Card--------------------------------------*/
+
+section  .pricing-table .pricing-card-3{
+    width:308px;
+    height:420px;
+    border: 3px solid var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section  .pricing-table .popular{
+    position: absolute;
+    top: -17px;
+    background-color: var(--primary-color);
+    padding:5px 30px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 14px;
+}
+section  .pricing-table .pricing-card-3 .content{
+    width:246px;
+    height:371px;
+}
+
+section  .pricing-table .pricing-card-3 .content .course-name{
+    font-size:40px;
+}
+section  .pricing-table .pricing-card-3 .content .striked-price{
+    font-size:36px;
+}
+section  .pricing-table .pricing-card-3 .content .striked-price p{
+    top:64px;
+    font-size: 30px;
+}
+section  .pricing-table .pricing-card-3 .content .course-price{
+    font-size:60px;
+}
+section  .pricing-table .pricing-card-3 .content .course-price p{
+    top:122px;
+    font-size: 44px;
+}
+
+section  .pricing-table .pricing-card-3 .content .months{
+    font-size: 22px;
+}
+
+section  .pricing-table .pricing-card-3 .content .offer{
+    margin-top: 25px;
+}
+section  .pricing-table .pricing-card-3 .content .enroll-button{
+    width:100%;
+    height:54px;
+    margin-top: 21px;
+}
+section  .pricing-table .pricing-card-3 .content .enroll-button a{
+    font-size: 20px;
+}
+
+/* -------------------------------NEET Card--------------------------------------*/
+
+section  .pricing-table .pricing-card-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*---------------------------------------------------*/
+section  h2{
+    margin: 50px 0px;
+    text-align: center;
+}
+
+section  .pricing-table .pricing-card-5 .content .course-price p,
+section  .pricing-table .pricing-card-6 .content .course-price p{
+    left:25px;
+}
+
+.pricing-card-8 .total-enrolled{
+    position: absolute;
+    top: -14px;
+    background-color: var(--primary-color);
+    padding:3px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+}
+
+
+/*-------------------------- Pricing Content and Combo pack card ---------------------------*/
+.combo-pack-section{
+    background-color: #efefef;
+}
+.combo-container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+/*--------------------------Footer---------------------------*/
+.footer{
+    background-color: #2A2C39;
+}
+.footer-container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:30px 0px;
+    position: relative;
+}
+
+/*------first row -------*/
+
+.first-row{
+    width:100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    padding:10px 0px;
+}
+
+.first-row img{
+    width:200px;
+}
+.first-row .f-signup{
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 0.25px;
+    /* margin-top: 5px; */
+}
+.first-row .f-signup a{
+    padding:8px 16px;
+    background-color: #DC3545;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.first-row .contact{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.first-row .contact li{
+    list-style: none;
+}
+.first-row .contact li i{
+    color:#fff;
+}
+.first-row .contact li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/*------second row -------*/
+
+.second-row{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:10px 0px;
+}
+.second-row p{
+    color:#fff;
+}
+.second-row div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.second-row div li{
+    list-style: none;
+}
+.second-row div li a{
+    text-decoration: none;  
+}
+.second-row div li a i{
+    font-size: 30px;
+    color: #fff;
+    padding-left:15px;   
+}
+
+.f-divider{
+    border: 1px solid rgb(255, 255, 255);
+    opacity: 0.1;
+}
+
+/*------third row -------*/
+
+.third-row{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.third-row .footer-policy{
+    font-size: 14px;
+    padding:10px 0px;
+    color: #fff;
+}
+.third-row .footer-policy a{
+    text-decoration: none;
+    color: #fff;
+}
+.third-row .rights p{
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+
+/*------------------------Media query------------------------*/
+
+@media (max-width:1200px){
+    section  .pricing-table{
+        justify-content: center;
+    }
+    section  .pricing-table .pricing-card{
+        margin:10px;
+    }
+}
+@media (max-width:991px){
+    section .pricing-content p{
+        font-size: 40px;
+        text-align:center;
+    }
+}
+@media (max-width:768px){
+    section .pricing-content p{
+        font-size: 34px;
+        text-align:center;
+    }
+    section .pricing-content small{
+        font-size: 24px;
+    }
+    section  .pricing-table{
+        margin-top: 25px;
+    }
+    section h2{
+        margin:15px 0px;
+    }
+    section .pricing-content{
+        margin-top: 30px;
+    }
+
+    .first-row{
+        flex-direction: column;
+        align-items: center;
+    }
+    .first-row img{
+        margin-bottom: 20px;
+    }
+    .first-row .f-signup{
+        margin-bottom: 20px;
+    }
+    .first-row .contact{
+        justify-content: center;
+        align-items: start;
+    }
+    .second-row{
+        flex-direction: column;
+    }
+    .second-row div{
+        margin-top: 20px;
+    }
+    .third-row{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .third-row .footer-policy{
+        margin: auto;
+        text-align: center;
+    }
+}
